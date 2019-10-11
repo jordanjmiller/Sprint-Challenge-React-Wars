@@ -32,16 +32,10 @@ const Button = (props) => {
     return (
         <>
         <StyledButton onClick={() => {
-            console.log(props.loadNewPage)
             props.setLoadNewPage(props.prevPage);
-            console.log(props.loadNewPage)
-
         }}>Previous</StyledButton>
         <StyledButton onClick={() => {
-            console.log(props.loadNewPage)
             props.setLoadNewPage(props.nextPage);
-            console.log(props.loadNewPage)
-
         }}>Next</StyledButton>
         </>
     );
