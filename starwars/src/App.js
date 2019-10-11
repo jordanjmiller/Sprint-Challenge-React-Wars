@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import styled from 'styled-components';
 import './App.css';
 
 const App = () => {
