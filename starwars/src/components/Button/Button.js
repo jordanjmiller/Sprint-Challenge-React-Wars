@@ -9,7 +9,11 @@ const Button = (props) => {
     margin: 5px;
     border: none;
     border-radius: 3px;
-    color: white;
+    background-color: grey;
+    color: black;
+    &:hover {
+      background-color: red;
+    }
 
     ${props => (props.type === 'arrows' 
     ? `background: steelblue;
@@ -24,18 +28,22 @@ const Button = (props) => {
       ` 
     : null)}
 `;
-  const H1 = styled.h1`
-    width: 80%;
-    @media (max-width: 800px){
-        font-size: 1.5rem;
-    }
-    @media (max-width: 500px){
-        font-size: 1rem;
-    }
-  `;
 
     return (
-        <StyledButton>{props.buttonText}</StyledButton>
+        <>
+        <StyledButton onClick={() => {
+            console.log(props.loadNewPage)
+            props.setLoadNewPage(props.prevPage);
+            console.log(props.loadNewPage)
+
+        }}>Previous</StyledButton>
+        <StyledButton onClick={() => {
+            console.log(props.loadNewPage)
+            props.setLoadNewPage(props.nextPage);
+            console.log(props.loadNewPage)
+
+        }}>Next</StyledButton>
+        </>
     );
   }
   

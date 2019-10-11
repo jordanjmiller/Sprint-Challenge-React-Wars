@@ -15,7 +15,7 @@ const App = () => {
 
   const [prevPage, setPrevPage] = useState('');
   const [nextPage, setNextPage] = useState('');
-  const [loadNewPage, setLoadNewPage] = useState('');
+  const [loadNewPage, setLoadNewPage] = useState('https://swapi.co/api/people/');
   const [person1, setPerson1] = useState({});
   const [person2, setPerson2] = useState([]);
   const [person3, setPerson3] = useState([]);
@@ -30,7 +30,7 @@ const App = () => {
 
 
   useEffect(() => {
-    axios.get(`https://swapi.co/api/people/${loadNewPage}`)
+    axios.get(loadNewPage)
     .then(response => {
     // console.log(response.data);
     
@@ -48,13 +48,14 @@ const App = () => {
     setPerson10(response.data.results[9])
     })
     .catch(error => {console.log('Error! : ' + error)})
-  }, []);
+  }, [loadNewPage]);
 
-
+  // 
 
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
+      <Button loadNewPage={loadNewPage} setLoadNewPage={setLoadNewPage} prevPage={prevPage} nextPage={nextPage}/>
       <PeopleCard p1={person1} p2={person2} p3={person3} p4={person4} p5={person5} p6={person6} p7={person7} p8={person8} p9={person9} p10={person10} />
     </div>
   );
